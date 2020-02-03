@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default function Newsletter() {
+const Newsletter = (props) => {
   return (
     <div></div>
   );
 }
+export default Newsletter;

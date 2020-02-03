@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default function Notification() {
+const Notification = (props) => {
   return (
     <div></div>
   );
 }
+export default Notification;

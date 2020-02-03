@@ -1,38 +1,148 @@
-.App {
+#header {
+  width: 100%;
+  height: 663px;
+  /* background-image: url("images/work-desk__dustin-lee.jpg"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  /* transform: scale(1.2); */
+}
+.cta-header {
+  position: relative;
+  min-height: 100%;
+}
+#header .hero-shot .btn-lets {
+  z-index: 1;
+}
+#header img {
+  position: absolute;
+  top: 4%;
+  bottom: 0;
+  left: 4%;
+  right: 0;
+  z-index: 1;
+}
+#header .hero-shot {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 576px) {
+  #header .hero-shot {
+      padding: 9rem 2rem;
+  }
+  .highlights-panel-title h1{
+      line-height: 2;
+  }
+  .highlights-panel-title p{
+      line-height: 0.7;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media (min-width: 320px) and (max-width: 480px) {
+  #header .hero-shot p {
+      color: white;
+      margin: 0 3rem;
+  }
+  .btn-lets {
+      margin-top: 1.5rem;
+  }
+}
+#header .hero-shot{
+  padding: 13rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: .3rem;
+}
+#header .hero-shot h1 {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+#header .hero-shot h2 {
+  color: white;
+}
+#header .hero-shot p {
+  color: white;
+}
+#highlights-panel {
+  background-color: #e5e5e5;
+  padding: 50px 0;
+}
+.highlights-panel-title {
+  text-align: center;
+  padding: 0 0 2rem 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-lets {
+  border: 1px solid white;
+  color: white;
+  padding: 10px 13px;
+  text-transform: uppercase;
+}
+.btn-lets:hover {background-color: #fff; color: rgba(0, 74, 117, 1);}
+
+.fas {
+  font-size: 25px;
+}
+.bg-footer-cermati {
+  background-color: #030326;
+}
+.list-group {
+  padding: 0 0 1rem 0;
+  
+}
+.list-group-item {
+  background-color: #e5e5e5;
+}
+.desc-cermati{
+  font-size: 66%;
+
+}
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  /* bottom: 0; */
+  text-align: center;
+  padding: 1rem 2rem;
+  background:#e5e5e5;
+  transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 2;
+}
+.cookie-box--hide {
+  opacity: 0;
+  bottom: -100%;
+}
+
+.cookie-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0.65rem 0.85rem;
+  margin-left: 0.45rem;
+  color: #fff;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  background-color: #007bc1;  
+}
+.overlay {
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 74, 117, 0.5);
+}
+.notification-panel b {
+  color: #007bc1;
+}
+#newsletterpanel {
+  position: fixed;
+  bottom: 0;
+  background-color: transparent;
+}
+#newsletterpanel .bg-newsletterpanel{
+  background-color: rgb(0, 123, 193, 0.8);
+  color: white;
+  padding: 30px 25px;
+}
+#newsletterpanel .btn-newsletter {
+  background-color: #ff8000;
+  color: white;
+  width: 100%;
 }
