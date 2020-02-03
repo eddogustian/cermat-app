@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Newsletter from "./components/NewsletterSection";
 import "./App.css";
 
+
 const App = (props) => {
     return (
       <div className="Container">
