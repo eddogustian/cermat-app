@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Notification from "./components/NotificationSection";
+import Hero from "./components/HeroSection";
+import Body from "./components/BodySection";
+import Footer from "./components/Footer";
+import Newsletter from "./components/NewsletterSection";
+import "./App.css";
+
+const App = (props) => {
+    return (
+      <div className="Container">
+        <Notification />
+        <Hero />
+        <Body />
+        <Footer />
+        <Newsletter />
+      </div>
+    );
 }
-
 export default App;
