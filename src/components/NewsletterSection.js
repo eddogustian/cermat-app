@@ -33,6 +33,7 @@ const Newsletter = (props) => {
             <div className="row">
                 <div className="col-md-7 bg-newsletterpanel">
                     <div className="">
+                        <small className="btn-x" onclick="handleNewsletter()"><i className="fa fa-times"></i></small>
                         <h3 className="panel-title">Get latest updates in web technologies</h3>
                         <div className="panel-body">
                             <p>I write articles related to web technologies, such as design trends, development

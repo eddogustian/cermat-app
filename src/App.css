@@ -153,3 +153,9 @@
 .text-muted .fa {
   font-size: 22px;
 }
+.btn-x .fa-times {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
