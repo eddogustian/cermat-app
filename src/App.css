@@ -94,11 +94,11 @@
   font-size: 66%;
 
 }
-.cookie-box {
-  position: fixed;
+.cookieConsent {
+  /* position: fixed; */
   left: 0;
   right: 0;
-  /* bottom: 0; */
+  bottom: unset;
   text-align: center;
   padding: 1rem 2rem;
   background:#e5e5e5;
