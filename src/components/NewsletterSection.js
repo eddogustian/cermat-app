@@ -11,7 +11,7 @@ const Newsletter = (props) => {
         
                 const diff = Date.now() - started;
         
-                if (diff >= 1000 * 60 * 1) {
+                if (diff >= 1000 * 60 * 1) { // ketika sdh 10 menit
                     alert('udah sepuluh menit');
                     // At least one week has passed. Do something here.
                 } else {
