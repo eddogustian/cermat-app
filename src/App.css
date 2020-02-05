@@ -45,6 +45,13 @@
   .btn-lets {
       margin-top: 1.5rem;
   }
+  .text-capitalize {
+    text-align: left;
+    font-size: 15px;
+  }
+  .cookie-button {
+    margin: 0px 15px 0px 15px !important;
+  }
 }
 #header .hero-shot{
   padding: 13rem 1rem;
@@ -104,6 +111,7 @@
   background:#e5e5e5;
   transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 2;
+  align-items: center !important;
 }
 .cookie-box--hide {
   opacity: 0;
@@ -143,7 +151,7 @@
 #newsletterpanel .bg-newsletterpanel{
   background-color: rgb(0, 123, 193, 0.8);
   color: white;
-  padding: 30px 25px;
+  padding: 10px 25px;
 }
 #newsletterpanel .btn-newsletter {
   background-color: #ff8000;
