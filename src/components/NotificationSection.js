@@ -1,11 +1,8 @@
 import React from 'react';
-import CookieConsent, { Cookies } from "react-cookie-consent";
+import CookieConsent from "react-cookie-consent";
 
 
 const Notification = (props) => {
-  const handleCookies = () => {
-    Cookies.set("test", "nice")
-  }
   return (
 
   //   <CookieConsent
