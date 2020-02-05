@@ -1,27 +1,71 @@
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 
 const Newsletter = (props) => {
-    // Deklarasi variabel state baru yang kita sebut "count"
+    function CountdownTimer() {
+        const calculateTimeLeft = () => {
+          const difference = +new Date("2020-02-06") - +new Date();
+          let timeLeft = {};
+      
+          if (difference > 0) {
+            timeLeft = {
+              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+              minutes: Math.floor((difference / 1000 / 60) % 60),
+              seconds: Math.floor((difference / 1000) % 60)
+            };
+          }
+      
+          return timeLeft;
+        };
+      
+        const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+      
+        useEffect(() => {
+          setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+          }, 1000);
+        });
+      
+        const timerComponents = [];
+      
+        Object.keys(timeLeft).forEach(interval => {
+          if (!timeLeft[interval]) {
+            return;
+          }
+      
+          timerComponents.push(
+            <span>
+              {timeLeft[interval]} {interval}{" "}
+            </span>
+          );
+        });
+      
+        return (
+          <div>
+            <h1>Alligator.io New Year's 2020 Countdown</h1>
+            <h2>With React Hooks!</h2>
+            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+          </div>
+        );
+      }
+    // Deklarasi variabel state baru yang kita sebut "classHideNewst"
     const [classHideNewst, setHideNewst] = useState('');
 
     const handleNewsletter = () => {
         setHideNewst('js-is-hidden'); 
 
-        const started = localStorage['started'];
-        localStorage['started'] = Date.now();
-
-        if(started) {
-            const diff = Date.now() - started;
-            if(diff >= 1000 * 10) { //ketika sdh 10 menit
-                //lakukan pemunculan newsletter lagi
-                setHideNewst('');
-            } 
-        } else {
-            //melakukan apa ya disini enaknya
-            
-        } //done
-        
+        // let startTime = new Date();
+        // window.localStorage.setItem('startTime', startTime);
+        // return startTime;
     }
+    // useEffect(() => {
+    //     let startTime;
+    //     document.title = `You clicked ${handleNewsletter} times`;
+    //     startTime = new Date(window.localStorage.getItem('startTime'));
+    //     window.setInterval(function(){
+    //         var secsDiff = new Date().getTime() - startTime.getTime();
+    //     })
+    //   });
 
   return (
     <section id="newsletterpanel" className={`${classHideNewst}`}>
