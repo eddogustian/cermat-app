@@ -21,7 +21,7 @@
   left: 4%;
   right: 0;
   z-index: 1;
-  width: 5%;
+  width: 50px;
 }
 #header .hero-shot {
   text-align: center;
@@ -153,9 +153,12 @@
 .text-muted .fa {
   font-size: 22px;
 }
-.btn-x .fa-times {
+.newsletter .fa-times {
   position: absolute;
   top: 5px;
   right: 10px;
   cursor: pointer;
+}
+.js-is-hidden {
+	display: none;
 }

@@ -1,39 +1,35 @@
-import React from 'react';
+import React, { useState }  from 'react';
 
 const Newsletter = (props) => {
+    // Deklarasi variabel state baru yang kita sebut "count"
+    const [classHideNewst, setHideNewst] = useState('');
+
     const handleNewsletter = () => {
-      
-            const started = localStorage['started'];
+        setHideNewst('js-is-hidden'); 
+
+        const started = localStorage['started'];
+        localStorage['started'] = Date.now();
+
+        if(started) {
+            const diff = Date.now() - started;
+            if(diff >= 1000 * 10) { //ketika sdh 10 menit
+                //lakukan pemunculan newsletter lagi
+                setHideNewst('');
+            } 
+        } else {
+            //melakukan apa ya disini enaknya
+            
+        } //done
         
-            if (started) {
-                // This is not the first time the user opens this file
-                // How long has it been?
-        
-                const diff = Date.now() - started;
-        
-                if (diff >= 1000 * 60 * 1) { // ketika sdh 10 menit
-                    alert('udah sepuluh menit');
-                    // At least one week has passed. Do something here.
-                } else {
-                    // Less than a week has passed. Do something else here.
-                }
-            } else {
-                // This is the first time the user opens this file
-        
-                localStorage['started'] = Date.now();
-        
-                // Do something else here to welcome the user...
-            }
-       
     }
 
   return (
-    <section id="newsletterpanel">
+    <section id="newsletterpanel" className={`${classHideNewst}`}>
         <div className="container">
             <div className="row">
                 <div className="col-md-7 bg-newsletterpanel">
                     <div className="">
-                        <small className="btn-x" onclick="handleNewsletter()"><i className="fa fa-times"></i></small>
+                        <small className="newsletter" onClick={handleNewsletter}><i className="fa fa-times"></i></small>
                         <h3 className="panel-title">Get latest updates in web technologies</h3>
                         <div className="panel-body">
                             <p>I write articles related to web technologies, such as design trends, development
