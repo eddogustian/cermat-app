@@ -1,59 +1,40 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState }  from 'react';
 
 const Newsletter = (props) => {
-    function CountdownTimer() {
-        const calculateTimeLeft = () => {
-          const difference = +new Date("2020-02-06") - +new Date();
-          let timeLeft = {};
-      
-          if (difference > 0) {
-            timeLeft = {
-              days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-              minutes: Math.floor((difference / 1000 / 60) % 60),
-              seconds: Math.floor((difference / 1000) % 60)
-            };
-          }
-      
-          return timeLeft;
-        };
-      
-        const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-      
-        useEffect(() => {
-          setTimeout(() => {
-            setTimeLeft(calculateTimeLeft());
-          }, 1000);
-        });
-      
-        const timerComponents = [];
-      
-        Object.keys(timeLeft).forEach(interval => {
-          if (!timeLeft[interval]) {
-            return;
-          }
-      
-          timerComponents.push(
-            <span>
-              {timeLeft[interval]} {interval}{" "}
-            </span>
-          );
-        });
-      
-        return (
-          <div>
-            <h1>Alligator.io New Year's 2020 Countdown</h1>
-            <h2>With React Hooks!</h2>
-            {timerComponents.length ? timerComponents : <span>Time's up!</span>}
-          </div>
-        );
-      }
     // Deklarasi variabel state baru yang kita sebut "classHideNewst"
     const [classHideNewst, setHideNewst] = useState('');
 
     const handleNewsletter = () => {
         setHideNewst('js-is-hidden'); 
-
+        // const total_seconds = localStorage('total_seconds');
+        if(localStorage.getItem('total_seconds')){
+          let total_seconds = localStorage.getItem('total_seconds');
+        }else {
+          let total_seconds = 60*10;
+        }
+        let minutes = parseInt(total_seconds/60);
+        let seconds = parseInt(total_seconds%60);
+        function countDownTimer() {
+          if(seconds < 10){
+            seconds = '0'+ seconds;
+          }if(minutes < 10){
+            minutes= '0'+ minutes;
+          }
+          let time_life = document.getElementById('time_life').innerHTML = "Time Left :"+minutes+"minutes"+seconds+"seconds";
+          if(total_seconds <= 0) {
+            setTimeout("document.quiz.submit()",1);
+          }else
+           {
+            total_seconds = total_seconds -1 ;
+            minutes = parseInt(total_seconds/60);
+            seconds = parseInt(total_seconds%60);
+            localStorage.setItem("total_seconds",total_seconds)
+            setTimeout("countDownTimer()",1000);
+           }
+        }
+        setTimeout("countDownTimer()",1000);
+        
+       
         // let startTime = new Date();
         // window.localStorage.setItem('startTime', startTime);
         // return startTime;
