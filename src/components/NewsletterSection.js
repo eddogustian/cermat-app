@@ -3,36 +3,43 @@ import React, { useState }  from 'react';
 const Newsletter = (props) => {
     // Deklarasi variabel state baru yang kita sebut "classHideNewst"
     const [classHideNewst, setHideNewst] = useState('');
-
+    
     const handleNewsletter = () => {
         setHideNewst('js-is-hidden'); 
-        // const total_seconds = localStorage('total_seconds');
-        if(localStorage.getItem('total_seconds')){
-          let total_seconds = localStorage.getItem('total_seconds');
-        }else {
-          let total_seconds = 60*10;
-        }
-        let minutes = parseInt(total_seconds/60);
-        let seconds = parseInt(total_seconds%60);
-        function countDownTimer() {
-          if(seconds < 10){
-            seconds = '0'+ seconds;
-          }if(minutes < 10){
-            minutes= '0'+ minutes;
+        const Timer = object => {
+          const endDate = Date.parse(object.endDate);
+          let container = document.getElementById(object.id);
+
+          const countDown = setInterval(() => {
+            let currentDate, distance, days, hours, minutes, seconds;
+
+            currentDate = Date.now();
+            distance = endDate - currentDate;
+
+            // calculations
+            days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+
+           
+          if (object.debug) {
+            console.log(`Days remaining: ${distance}`);
           }
-          let time_life = document.getElementById('time_life').innerHTML = "Time Left :"+minutes+"minutes"+seconds+"seconds";
-          if(total_seconds <= 0) {
-            setTimeout("document.quiz.submit()",1);
-          }else
-           {
-            total_seconds = total_seconds -1 ;
-            minutes = parseInt(total_seconds/60);
-            seconds = parseInt(total_seconds%60);
-            localStorage.setItem("total_seconds",total_seconds)
-            setTimeout("countDownTimer()",1000);
-           }
-        }
-        setTimeout("countDownTimer()",1000);
+      
+          if (distance < 0) {
+            clearInterval(countDown);
+            container.innerHTML = "";
+          }
+          }, 1000);
+        };
+        Timer({
+          id: "countdown",
+          endDate: "Feb-25-2020 00:00",
+          debug: false
+        })
+       
         
        
         // let startTime = new Date();
@@ -54,6 +61,13 @@ const Newsletter = (props) => {
             <div className="row">
                 <div className="col-md-7 bg-newsletterpanel">
                     <div className="">
+                    <div>
+                      <h1 className="text--center animation--moveLeft">Countdown Timer</h1>
+                    </div>
+
+                    <div id="{countdown}" className="countdown flex flex--space-evenly">
+                    
+                    </div>
                         <small className="newsletter" onClick={handleNewsletter}><i className="fa fa-times"></i></small>
                         <h3 className="panel-title">Get latest updates in web technologies</h3>
                         <div className="panel-body">
@@ -65,7 +79,7 @@ const Newsletter = (props) => {
                                 <div className="col-lg-8 my-md-2 my-2">
                                     <input type="text" className="form-control" placeholder="Email address"></input>
                                 </div>
-                                <div class="col-lg-4 my-md-2 my-2"><button type="submit" class="btn btn-newsletter">Count me in!</button></div>
+                                <div className="col-lg-4 my-md-2 my-2"><button type="submit" className="btn btn-newsletter">Count me in!</button></div>
                             </form>
                         </div>
                     </div>

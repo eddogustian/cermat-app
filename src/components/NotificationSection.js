@@ -10,7 +10,7 @@ const Notification = (props) => {
       expires={150}
       style={{ background: "#e5e5e5", color: "#212529",  position: "unset", alignitems: "left" }}
       buttonText="Got it"
-      disableButtonStyles="true"
+      disableButtonStyles={true}
       buttonClasses="cookie-button"
       containerClasses="col-lg-12"
       contentClasses="text-capitalize"

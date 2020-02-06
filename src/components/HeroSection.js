@@ -11,10 +11,10 @@ class Hero extends Component {
             <h2>Consult, Design, and Develop Websites</h2>
             <p>Have something great in mind? Feel free to contact me.</p>
             <p>I'll help you to make it happen.</p>
-            <button type="button" class="btn btn-lets">Let's Make Contact</button>
+            <button type="button" className="btn btn-lets">Let's Make Contact</button>
         </div>
         <img src={logo} className="App-logo" alt="logo" />
-        <div class="overlay"></div>
+        <div className="overlay"></div>
     </section>
     );
   }
