@@ -8,7 +8,7 @@ const Notification = (props) => {
       // disableStyles={true}
       location="top"
       expires={150}
-      style={{ background: "#e5e5e5", color: "#212529",  position: "unset", alignitems: "left" }}
+      style={{ background: "#e5e5e5", color: "#212529",  position: "unset", alignitems: "left", padding: "0 20%" }}
       buttonText="Got it"
       disableButtonStyles={true}
       buttonClasses="cookie-button"

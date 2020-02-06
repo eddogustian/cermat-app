@@ -38,6 +38,9 @@
   }
 }
 @media (min-width: 320px) and (max-width: 480px) {
+  .cookieConsent {
+    padding: 15px !important;
+  }
   #header .hero-shot p {
       color: white;
       margin: 0 3rem;
@@ -106,13 +109,30 @@
   left: 0;
   right: 0;
   bottom: unset;
-  text-align: center;
+  text-align: left;
   padding: 1rem 2rem;
   background:#e5e5e5;
   transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 2;
   align-items: center !important;
 }
+   /* Media Query for low resolution  Tablets, Ipads */ 
+   @media (min-width: 481px) and (max-width: 767px) { 
+    .cookieConsent {
+      padding: 0 !important;
+     
+    }
+} 
+  
+/* Media Query for Tablets Ipads portrait mode */ 
+@media (min-width: 768px) and (max-width: 1024px){ 
+    .cookieConsent {
+      padding: 0 5%!important;
+    }
+    .cookieConsent .text-capitalize {
+      font-size: 14px !important;
+    }
+} 
 .cookie-box--hide {
   opacity: 0;
   bottom: -100%;
