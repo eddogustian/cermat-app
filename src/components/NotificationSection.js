@@ -7,9 +7,8 @@ const Notification = (props) => {
     <CookieConsent
       // disableStyles={true}
       location="top"
-      style={{ position: "unset" }}
       expires={150}
-      style={{ background: "#e5e5e5", color: "#212529", alignitems: "left" }}
+      style={{ background: "#e5e5e5", color: "#212529",  position: "unset", alignitems: "left" }}
       buttonText="Got it"
       disableButtonStyles="true"
       buttonClasses="cookie-button"
