@@ -6,68 +6,27 @@ const Newsletter = (props) => {
     
     const handleNewsletter = () => {
         setHideNewst('js-is-hidden'); 
-        const Timer = object => {
-          const endDate = Date.parse(object.endDate);
-          let container = document.getElementById(object.id);
 
-          const countDown = setInterval(() => {
-            let currentDate, distance, days, hours, minutes, seconds;
+        const started = localStorage['started'];
+        localStorage['started'] = Date.now();
 
-            currentDate = Date.now();
-            distance = endDate - currentDate;
-
-            // calculations
-            days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-
-           
-          if (object.debug) {
-            console.log(`Days remaining: ${distance}`);
+        if(started) {
+          const diff = Date.now() - started;
+          let time_in_minutes = 10;
+          if(diff >= 60 * time_in_minutes * 1000) { //if 10 menit => seconds * minutes * 1000
+            setHideNewst('');
           }
-      
-          if (distance < 0) {
-            clearInterval(countDown);
-            container.innerHTML = "";
-          }
-          }, 1000);
-        };
-        Timer({
-          id: "countdown",
-          endDate: "Feb-25-2020 00:00",
-          debug: false
-        })
-       
-        
-       
-        // let startTime = new Date();
-        // window.localStorage.setItem('startTime', startTime);
-        // return startTime;
+        } else {
+            //melakukan apa gitu
+        } //done
     }
-    // useEffect(() => {
-    //     let startTime;
-    //     document.title = `You clicked ${handleNewsletter} times`;
-    //     startTime = new Date(window.localStorage.getItem('startTime'));
-    //     window.setInterval(function(){
-    //         var secsDiff = new Date().getTime() - startTime.getTime();
-    //     })
-    //   });
 
   return (
     <section id="newsletterpanel" className={`${classHideNewst}`}>
         <div className="container">
             <div className="row">
                 <div className="col-md-7 bg-newsletterpanel">
-                    <div className="">
-                    <div>
-                      <h1 className="text--center animation--moveLeft">Countdown Timer</h1>
-                    </div>
-
-                    <div id="{countdown}" className="countdown flex flex--space-evenly">
-                    
-                    </div>
+                    <div className="content">
                         <small className="newsletter" onClick={handleNewsletter}><i className="fa fa-times"></i></small>
                         <h3 className="panel-title">Get latest updates in web technologies</h3>
                         <div className="panel-body">
